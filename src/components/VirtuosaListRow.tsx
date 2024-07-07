@@ -24,7 +24,7 @@ interface VirtuosaListRowProps {
   debug: boolean;
   elementClicksEnabled: boolean;
   scrollAndUpdate: (newIndex: number) => void;
-  initialElementIndex: number;
+  currentIndex: number;
 }
 
 export const VirtuosaListRow = ({
@@ -44,7 +44,7 @@ export const VirtuosaListRow = ({
   debug,
   elementClicksEnabled,
   scrollAndUpdate,
-  initialElementIndex,
+  currentIndex,
 }: VirtuosaListRowProps) => {
   const top = elementHeight * index;
   const topInclMargins = top + marginVerticalTop;
@@ -104,7 +104,7 @@ export const VirtuosaListRow = ({
         <E
           index={index}
           visibilityStatus={visibilityStatus}
-          isActive={index === initialElementIndex}
+          isActive={index === currentIndex}
         />
       ) : null}
     </div>

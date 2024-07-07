@@ -17,7 +17,7 @@ interface VirtuosaListProps {
   listKeyName: string;
   elementClicksEnabled: boolean;
   scrollAndUpdate: (newIndex: number) => void;
-  initialElementIndex: number;
+  currentIndex: number;
 }
 
 export const VirtuosaList = ({
@@ -34,7 +34,7 @@ export const VirtuosaList = ({
   listKeyName,
   elementClicksEnabled,
   scrollAndUpdate,
-  initialElementIndex,
+  currentIndex,
 }: VirtuosaListProps) => {
   // visible window:
   const listWindowTop = scrollTopOffset;
@@ -67,7 +67,7 @@ export const VirtuosaList = ({
       debug={debug}
       elementClicksEnabled={elementClicksEnabled}
       scrollAndUpdate={scrollAndUpdate}
-      initialElementIndex={initialElementIndex}
+      currentIndex={currentIndex}
     />
   ));
 };

@@ -7,7 +7,7 @@ export interface IVirtuosaProps {
   containerHeight: number;
   elementHeight: number;
   elements: IVirtuosaElement[];
-  initialElementIndex?: number;
+  currentIndex?: number;
   onChange: (index: number) => void;
   onChangeTrigger?: IOnChangeTrigger;
   centerFirstVertically?: boolean;

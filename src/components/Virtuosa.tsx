@@ -18,7 +18,7 @@ export const Virtuosa = ({
   onChange,
   onChangeTrigger = "CENTERED",
   throttleWait = 32,
-  initialElementIndex = 0,
+  currentIndex = 0,
   centerFirstVertically = false,
   centerLastVertically = false,
   backgroundRenderNumber = 4,
@@ -50,7 +50,7 @@ export const Virtuosa = ({
   const allElementsHeight = elements.length * elementHeight;
 
   const virtuosaRef = useRef<HTMLDivElement>();
-  const initialElementIndexMemorized = useRef<{
+  const currentIndexMemorized = useRef<{
     index: number;
     processing: boolean;
   }>({ index: -1, processing: false });
@@ -67,48 +67,48 @@ export const Virtuosa = ({
   );
 
   const hasManualChange: boolean =
-    initialElementIndexMemorized.current.processing !== true &&
-    initialElementIndexMemorized.current.index !== initialElementIndex;
+    currentIndexMemorized.current.processing !== true &&
+    currentIndexMemorized.current.index !== currentIndex;
 
   useEffect(() => {
     if (hasManualChange) {
-      scrollAndUpdate(initialElementIndex);
+      scrollAndUpdate(currentIndex);
     }
-  }, [hasManualChange, initialElementIndex]);
+  }, [hasManualChange, currentIndex]);
 
   if (
-    initialElementIndexMemorized.current.processing === true &&
-    initialElementIndexMemorized.current.index === initialElementIndex
+    currentIndexMemorized.current.processing === true &&
+    currentIndexMemorized.current.index === currentIndex
   ) {
-    initialElementIndexMemorized.current.processing = false;
+    currentIndexMemorized.current.processing = false;
   }
 
   const onChangeEnhanced = useCallback(
     (newIndex: number) => {
-      if (!hasManualChange && initialElementIndex === newIndex) {
+      if (!hasManualChange && currentIndex === newIndex) {
         return;
       }
       if (
         !hasManualChange &&
-        initialElementIndexMemorized.current.processing === true
+        currentIndexMemorized.current.processing === true
       ) {
         return;
       }
-      if (hasManualChange && newIndex !== initialElementIndex) {
+      if (hasManualChange && newIndex !== currentIndex) {
         return;
       }
 
       if (hasManualChange) {
         onChange(newIndex);
-        initialElementIndexMemorized.current.index = newIndex;
-        initialElementIndexMemorized.current.processing = false;
+        currentIndexMemorized.current.index = newIndex;
+        currentIndexMemorized.current.processing = false;
       } else {
-        initialElementIndexMemorized.current.processing = true;
-        initialElementIndexMemorized.current.index = newIndex;
+        currentIndexMemorized.current.processing = true;
+        currentIndexMemorized.current.index = newIndex;
         onChange(newIndex);
       }
     },
-    [hasManualChange, initialElementIndex, onChange],
+    [hasManualChange, currentIndex, onChange],
   );
 
   const onChangeEnhanceThrottled = useCallback(
@@ -167,7 +167,7 @@ export const Virtuosa = ({
           listKeyName={listKeyName}
           elementClicksEnabled={elementClicksEnabled}
           scrollAndUpdate={scrollAndUpdate}
-          initialElementIndex={initialElementIndex}
+          currentIndex={currentIndex}
         />
       </div>
     </div>
