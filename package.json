@@ -1,6 +1,6 @@
 {
   "name": "virtuosa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A list component for React that combines vertical virtualized scrolling with CSS snap logic, allowing the 'active' element to snap to the center of the visible area.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
