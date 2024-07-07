@@ -11,8 +11,7 @@ interface VirtuosaListRowProps {
   E: IVirtuosaElement;
   onChangeEnhanced: (newIndex: number) => void;
   elementHeight: number;
-  marginVerticalTop: number;
-  marginVerticalBottom: number;
+  marginVertical: number;
   onChangeTrigger: IOnChangeTrigger;
   centerTop: number;
   listWindowTop: number;
@@ -32,7 +31,7 @@ export const VirtuosaListRow = ({
   E,
   onChangeEnhanced,
   elementHeight,
-  marginVerticalTop,
+  marginVertical,
   onChangeTrigger,
   centerTop,
   listWindowTop,
@@ -47,7 +46,7 @@ export const VirtuosaListRow = ({
   currentIndex,
 }: VirtuosaListRowProps) => {
   const top = elementHeight * index;
-  const topInclMargins = top + marginVerticalTop;
+  const topInclMargins = top + marginVertical;
 
   let visibilityStatus: IVisibilityStatus;
   if (topInclMargins === centerTop) {

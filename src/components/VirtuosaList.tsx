@@ -7,8 +7,7 @@ interface VirtuosaListProps {
   elements: IVirtuosaElement[];
   onChangeEnhanced: (newIndex: number) => void;
   elementHeight: number;
-  marginVerticalTop: number;
-  marginVerticalBottom: number;
+  marginVertical: number;
   containerHeight: number;
   scrollTopOffset: number;
   onChangeTrigger: IOnChangeTrigger;
@@ -24,8 +23,7 @@ export const VirtuosaList = ({
   elements,
   onChangeEnhanced,
   elementHeight,
-  marginVerticalTop,
-  marginVerticalBottom,
+  marginVertical,
   containerHeight,
   scrollTopOffset,
   onChangeTrigger,
@@ -55,8 +53,7 @@ export const VirtuosaList = ({
       centerTop={centerTop}
       onChangeEnhanced={onChangeEnhanced}
       elementHeight={elementHeight}
-      marginVerticalTop={marginVerticalTop}
-      marginVerticalBottom={marginVerticalBottom}
+      marginVertical={marginVertical}
       onChangeTrigger={onChangeTrigger}
       listWindowTop={listWindowTop}
       listWindowBottom={listWindowBottom}

@@ -34,16 +34,6 @@ export const Virtuosa = ({
     [containerHeight, elementHeight],
   );
 
-  const marginVerticalTop = useMemo(
-    () => (centerFirstVertically ? marginVertical : 0),
-    [centerFirstVertically, marginVertical],
-  );
-
-  const marginVerticalBottom = useMemo(
-    () => (centerLastVertically ? marginVertical : 0),
-    [centerLastVertically, marginVertical],
-  );
-
   const listKeyName = `virtuosa-${keyNameSuffix}`;
   const listInnerKeyName = `virtuosa-inner-${keyNameSuffix}`;
 
@@ -147,8 +137,8 @@ export const Virtuosa = ({
           height: allElementsHeight,
           minHeight: allElementsHeight,
           maxHeight: allElementsHeight,
-          marginTop: marginVerticalTop,
-          marginBottom: marginVerticalBottom,
+          marginTop: marginVertical,
+          marginBottom: marginVertical,
         }}
       >
         <VirtuosaList
@@ -157,8 +147,7 @@ export const Virtuosa = ({
             throttleWait ? onChangeEnhanceThrottled : onChangeEnhanced
           }
           elementHeight={elementHeight}
-          marginVerticalTop={marginVerticalTop}
-          marginVerticalBottom={marginVerticalBottom}
+          marginVertical={marginVertical}
           containerHeight={containerHeight}
           scrollTopOffset={scrollTopOffset}
           onChangeTrigger={onChangeTrigger}
