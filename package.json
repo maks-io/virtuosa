@@ -1,0 +1,50 @@
+{
+  "name": "virtuosa",
+  "version": "1.0.0",
+  "description": "A list component for React that combines vertical virtualized scrolling with CSS snap logic, allowing the 'active' element to snap to the center of the visible area.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "keywords": [
+    "react",
+    "virtualized list",
+    "virtualization",
+    "list",
+    "snap",
+    "scroll"
+  ],
+  "scripts": {
+    "clear-build-folder": "rm -rf ./build",
+    "transpile": "tsc",
+    "fix-paths": "tsc-alias",
+    "build": "yarn clear-build-folder && yarn transpile && yarn fix-paths",
+    "dev": "yarn nodemon",
+    "depcheck": "npx depcheck --config .depcheckrc",
+    "release": "yarn && yarn build && npx depcheck && npm publish"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maks-io/virtuosa.git"
+  },
+  "author": "Markus Kurzmann <markus@kurzmann.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maks-io/virtuosa/issues"
+  },
+  "homepage": "https://github.com/maks-io/virtuosa#readme",
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/lodash.throttle": "^4.0.9",
+    "@types/react": "~18.3.3",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2",
+    "react": "18.3.1",
+    "tsc": "^2.0.4",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.5.2"
+  }
+}
