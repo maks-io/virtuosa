@@ -22,6 +22,7 @@ export const Virtuosa = ({
   backgroundRenderNumber = 4,
   elementClicksEnabled = true,
   scrollBehavior = "smooth",
+  hideScrollbar = true,
   disabled = false,
   debug = false,
 }: IVirtuosaProps) => {
@@ -157,6 +158,18 @@ export const Virtuosa = ({
           currentIndex={currentIndex}
         />
       </div>
+      {hideScrollbar && (
+        <style>{`
+           #${listKeyName}::-webkit-scrollbar {
+             display: none;
+           }
+           
+           #${listKeyName} {
+             -ms-overflow-style: none;
+             scrollbar-width: none;
+           }
+      `}</style>
+      )}
     </div>
   );
 };

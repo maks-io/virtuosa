@@ -17,6 +17,7 @@ export interface IVirtuosaProps {
   throttleWait?: number;
   scrollBehavior?: "smooth" | "instant";
   debug?: boolean;
+  hideScrollbar?: boolean;
   disabled?: boolean;
   containerStyle?: React.CSSProperties;
 }
