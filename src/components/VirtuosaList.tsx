@@ -48,6 +48,7 @@ export const VirtuosaList = ({
 
   return elements.map((E, index) => (
     <VirtuosaListRow
+      key={`virtuosa-list-row-${index}`}
       index={index}
       E={E}
       centerTop={centerTop}
